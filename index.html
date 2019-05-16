@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Rock, Paper, Scissors</title>
+
+    <style>
+       {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+       body{padding:5%;font:550 1.25em/1.6 monospace;}
+       h1{font-family:"Helvetica",sans-serif;line-height:1;font-weight:900;margin-bottom:1em;}
+    </style>
+</head>
+<body>
+    <body style="background: url(https://cache.desktopnexus.com/thumbseg/503/503557-bigthumbnail.jpg); background-size:100%,100%">
+
+<h1>Rock, Paper, Scissors</h1>
+
+    <script>
+        // User choice
+        var show = alert  ("R = Rock, P = Paper, S = Scissors");
+        var userChoice = prompt("Do you choose rock, paper or scissors?");
+
+
+        document.write("<br>");
+        document.write("R = Rock");
+        document.write("<br>");
+        document.write("P = Paper");
+        document.write("<br>");
+        document.write("S = Scissors");
+                document.write("<br>");
+                        document.write("<br>");
+                                document.write("<br>");
+
+
+
+        if ( ! userChoice) {
+            // User choice was undefined
+            document.write("<p>Player 1, you cheated! Refresh this screen and fight like a man.</p>");
+        } else {
+            // Display user choice
+            document.write("<p>Player 1:" + " " + userChoice + "</p>");
+        }
+        // Computer choice
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "r";
+        } else if(computerChoice <= 0.67) {
+            computerChoice = "p";
+        } else {
+            computerChoice = "s";
+        }
+        // Display computer choice
+        document.write("<p>Computer:" + " " + computerChoice + "</p>");
+        // Compare user choice vs computer choice
+        var compare = function(choice1,choice2) {
+            if (choice1 === choice2) {
+                return "It's a tie!";
+            }
+            if (choice1 === "r") {
+                if (choice2 === "s") {
+                    // rock wins
+                    return "You win!";
+                } else {
+                    // paper wins
+                    return "You lose! Try again.";
+                }
+            }
+            if (choice1 === "p") {
+                if (choice2 === "r") {
+                    // paper wins
+                    return "You win!";
+                } else {
+                    // scissors wins
+                    return "You lose! Try again.";
+                }
+            }
+            if (choice1 === "s") {
+                if (choice2 === "r") {
+                    // rock wins
+                    return "You lose! Try again.";
+                } else {
+                    // scissors wins
+                    return "You win!";
+                }
+            }
+        };
+        // Run the compare function
+        var results = compare(userChoice,computerChoice);
+        // Display results
+        document.write("<br><hr><br>" + results);
+
+    </script>
+    <br>
+
+    <button onclick="myFunction()"> Retry? </button>
+    <script>
+        function myFunction() {
+    location.reload();
+}
+    </script>
+
+</body>
+</html>
